@@ -122,6 +122,10 @@ class PlayState extends MusicBeatState
 	public static var storyDifficulty:Int = 1;
 	public static var seenDialogue:Bool = false;
 
+	public static var botPlay:Bool = false;
+	public var botplaySine:Float = 0;
+	public var botplayTxt:FlxText;
+
 	public static var returnLocation:String = "main";
 	public static var returnSong:Int = 0;
 
@@ -396,6 +400,8 @@ class PlayState extends MusicBeatState
 		else
 			openfl.Lib.current.stage.frameRate = 144;
 
+		botPlay = Config.botplay;
+		
 		camTween = FlxTween.tween(this, {}, 0);
 		camZoomTween = FlxTween.tween(this, {}, 0);
 		uiZoomTween = FlxTween.tween(this, {}, 0);
@@ -458,6 +464,11 @@ class PlayState extends MusicBeatState
 			catch (e)
 			{
 			}
+		}
+
+		if(botplayTxt.visible) {
+			botplaySine += 180;
+			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
 		}
 
 		var stageCheck:String = 'stage';
@@ -934,6 +945,13 @@ class PlayState extends MusicBeatState
 		scoreTxt.setFormat(Paths.font("vcr"), 22, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 
+		botplayTxt = new FlxText(healthBarBG.x + healthBarBG.width / 2 - 75, healthBarBG.y + (FlxG.save.data.downscroll ? 100 : -100), 0,
+		"BOTPLAY", 20);
+		botplayTxt.setFormat(Paths.font("vcr"), 22, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		botplayTxt.scrollFactor.set();
+		botplayTxt.borderSize = 3;
+		botplayTxt.visible = botPlay;
+		
 		iconP1 = new HealthIcon(SONG.player1, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);
 
@@ -944,6 +962,7 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		add(iconP1);
 		add(scoreTxt);
+		add(botplayTxt);
 		add(blackThing);
 
 		strumLineNotes.cameras = [camNotes];
@@ -953,6 +972,7 @@ class PlayState extends MusicBeatState
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
+		botplayTxt.cameras = [camHUD];
 		blackThing.cameras = [camHUD];
 		// doof.cameras = [camHUD];
 
@@ -1921,7 +1941,7 @@ class PlayState extends MusicBeatState
 
 		keyCheck(); // Gonna stick with this for right now. I have the other stuff on standby in case this still is not working for people.
 
-		if (!inCutscene)
+		if (!inCutscene && !botPlay)
 			keyShit();
 
 		/*if (FlxG.keys.justPressed.NINE)
@@ -2277,7 +2297,7 @@ class PlayState extends MusicBeatState
 			var targetY:Float;
 			var targetX:Float;
 
-			if (daNote.mustPress)
+			if (daNote.mustPress && botPlay)
 			{
 				targetY = playerStrums.members[Math.floor(Math.abs(daNote.noteData))].y;
 				targetX = playerStrums.members[Math.floor(Math.abs(daNote.noteData))].x;
@@ -2426,7 +2446,7 @@ class PlayState extends MusicBeatState
 		// FlxG.sound.music.volume = 0;
 		music.volume = 0;
 		vocals.volume = 0;
-		if (SONG.validScore)
+		if (SONG.validScore && !botPlay)
 		{
 			#if !switch
 			Highscore.saveScore(SONG.song, songScore, storyDifficulty);
@@ -2453,12 +2473,13 @@ class PlayState extends MusicBeatState
 		// 		// if ()
 		// 		StoryMenuState.weekUnlocked[Std.int(Math.min(storyWeek + 1, StoryMenuState.weekUnlocked.length - 1))] = true;
 
-		// 		if (SONG.validScore)
+		// 		f (SONG.validScore && !botPlay)
 		// 		{
 		// 			Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 		// 		}
 
-		// 		FlxG.save.data.weekUnlocked = StoryMenuState.weekUnlocked;
+		// 		
+		// 		if (!botPlay) FlxG.save.data.weekUnlocked = StoryMenuState.weekUnlocked;
 		// 		FlxG.save.flush();
 		// 	}
 		// 	else
@@ -2530,10 +2551,12 @@ class PlayState extends MusicBeatState
 
 		var daRating:String = "sick";
 
+
+		if (!botPlay) {
 		if (noteDiff > Conductor.safeZoneOffset * Conductor.shitZone)
-		{
-			daRating = 'shit';
-			if (Config.accuracy == "complex")
+		    {
+			    daRating = 'shit';
+			    if (Config.accuracy == "complex")
 			{
 				totalNotesHit += 1 - Conductor.shitZone;
 			}
@@ -2541,7 +2564,8 @@ class PlayState extends MusicBeatState
 			{
 				totalNotesHit += 1;
 			}
-			score = 50;
+		    	score = 50;
+		    }
 		}
 		else if (noteDiff > Conductor.safeZoneOffset * Conductor.badZone)
 		{
@@ -3183,9 +3207,11 @@ class PlayState extends MusicBeatState
 
 			playerStrums.forEach(function(spr:FlxSprite)
 			{
-				if (Math.abs(note.noteData) == spr.ID)
-				{
-					spr.animation.play('confirm', true);
+				if(botPlay) {
+		     		if (Math.abs(note.noteData) == spr.ID)
+			    	{
+				    	spr.animation.play('confirm', true);
+			    	}
 				}
 			});
 

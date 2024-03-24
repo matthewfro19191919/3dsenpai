@@ -38,6 +38,7 @@ class ConfigMenu extends MusicBeatState
 	var scheme:Int;
 	var dimValue:Int;
 	var fpsDisplayValue:Int;
+	var botplayValue:Bool;
 	var lowResValue:Bool;
 	var noMouseValue:Bool;
 	var resTypes:Array<String> = ["Retro", "High Quality"];
@@ -52,7 +53,7 @@ class ConfigMenu extends MusicBeatState
 
 	final settingText:Array<String> = [
 		"NOTE OFFSET", "ACCURACY DISPLAY", "UNCAPPED FRAMERATE", "ALLOW GHOST TAPPING", "HP GAIN MULTIPLIER", "HP DRAIN MULTIPLIER", "DOWNSCROLL",
-		"NOTE GLOW", "COMBO DISPLAY", "BACKGROUND DIM", "FPS DISPLAY", "CONTROLLER SCHEME", "[EDIT KEY BINDS]", "3D Mode", "NO MOUSE"
+		"NOTE GLOW", "COMBO DISPLAY", "BACKGROUND DIM", "FPS DISPLAY", "BOTPLAY", "CONTROLLER SCHEME", "[EDIT KEY BINDS]", "3D Mode", "NO MOUSE"
 	];
 
 	// Any descriptions that say TEMP are replaced with a changing description based on the current config setting.
@@ -80,6 +81,8 @@ class ConfigMenu extends MusicBeatState
 		"You can only  miss while you need to sing.",
 		"You cannot miss unless you do not hit a note.\n[Note that this makes the game very easy and can remove a lot of the challenge.]"
 	];
+	final botplayDesc:Array<String> = ["A Bot That Plays For You"];
+
 
 	final comboDisplayDesc:Array<String> = [
 		"Ratings and combo count are a part of the world and move around with the camera.",
@@ -139,6 +142,7 @@ class ConfigMenu extends MusicBeatState
 		scheme = Config.controllerScheme;
 		dimValue = Config.bgDim;
 		fpsDisplayValue = Config.fpsDisplayValue;
+		botplayValue = Config.botplay;
 		lowResValue = Config.lowRes;
 		noMouseValue = Config.noMouse;
 
@@ -628,6 +632,8 @@ class ConfigMenu extends MusicBeatState
 				return ": " + fpsDisplays[fpsDisplayValue];
 			case 11:
 				return ": " + controlSchemes[scheme];
+			case 12:
+				return ": " + genericOnOff[botplayValue ? 0 : 1];
 			case 13:
 				return ": " + resTypes[lowResValue ? 0 : 1];
 			case 14:
@@ -673,14 +679,13 @@ class ConfigMenu extends MusicBeatState
 		switch (combo)
 		{
 			case "KADE":
-				Config.write(offsetValue, "complex", 5, 5, 1, downValue, false, 2, noCapValue, scheme, dimValue, fpsDisplayValue, lowResValue, noMouseValue);
+				Config.write(offsetValue, "complex", 5, 5, 1, downValue, false, 2, noCapValue, scheme, dimValue, fpsDisplayValue, lowResValue, botplayValue, noMouseValue);
 				exit();
 			case "ROZE":
-				Config.write(offsetValue, "simple", 1, 1, 0, true, true, 0, noCapValue, scheme, dimValue, fpsDisplayValue, lowResValue, noMouseValue);
+				Config.write(offsetValue, "simple", 1, 1, 0, true, true, 0, noCapValue, scheme, dimValue, fpsDisplayValue, lowResValue, botplayValue, noMouseValue);
 				exit();
 			case "CVAL":
-				Config.write(offsetValue, "simple", 1, 1, comboValue, false, glowValue, 1, noCapValue, scheme, dimValue, fpsDisplayValue, lowResValue,
-					noMouseValue);
+				Config.write(offsetValue, "simple", 1, 1, comboValue, false, glowValue, 1, noCapValue, scheme, dimValue, fpsDisplayValue,lowResValue, botplayValue, noMouseValue);
 				exit();
 			case "GOTOHELLORSOMETHING":
 				System.exit(0); // I am very funny.
@@ -690,6 +695,6 @@ class ConfigMenu extends MusicBeatState
 	function writeToConfig()
 	{
 		Config.write(offsetValue, accuracyType, healthValue / 10.0, healthDrainValue / 10.0, comboValue, downValue, glowValue, randomTapValue, noCapValue,
-			scheme, dimValue, fpsDisplayValue, lowResValue, noMouseValue);
+			scheme, dimValue, fpsDisplayValue, lowResValue, botplayValue, noMouseValue);
 	}
 }
