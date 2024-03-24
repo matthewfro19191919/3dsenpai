@@ -53,7 +53,7 @@ class ConfigMenu extends MusicBeatState
 
 	final settingText:Array<String> = [
 		"NOTE OFFSET", "ACCURACY DISPLAY", "UNCAPPED FRAMERATE", "ALLOW GHOST TAPPING", "HP GAIN MULTIPLIER", "HP DRAIN MULTIPLIER", "DOWNSCROLL",
-		"NOTE GLOW", "COMBO DISPLAY", "BACKGROUND DIM", "FPS DISPLAY", "BOTPLAY", "CONTROLLER SCHEME", "[EDIT KEY BINDS]", "3D Mode", "NO MOUSE"
+		"NOTE GLOW", "COMBO DISPLAY", "BACKGROUND DIM", "FPS DISPLAY", "CONTROLLER SCHEME", "[EDIT KEY BINDS]", "3D Mode", "BOTPLAY", "NO MOUSE"
 	];
 
 	// Any descriptions that say TEMP are replaced with a changing description based on the current config setting.
