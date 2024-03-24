@@ -82,8 +82,8 @@ class ConfigMenu extends MusicBeatState
 		"You cannot miss unless you do not hit a note.\n[Note that this makes the game very easy and can remove a lot of the challenge.]"
 	];
 	final botplayDesc:Array<String> = [
-		"A Bot That Plays For You"
-		""
+		"A Bot That Plays For You",
+		"",
 		""
 	];
 
