@@ -81,7 +81,11 @@ class ConfigMenu extends MusicBeatState
 		"You can only  miss while you need to sing.",
 		"You cannot miss unless you do not hit a note.\n[Note that this makes the game very easy and can remove a lot of the challenge.]"
 	];
-	final botplayDesc:Array<String> = ["A Bot That Plays For You"];
+	final botplayDesc:Array<String> = [
+		"A Bot That Plays For You"
+		""
+		""
+	];
 
 
 	final comboDisplayDesc:Array<String> = [
@@ -633,7 +637,7 @@ class ConfigMenu extends MusicBeatState
 			case 11:
 				return ": " + controlSchemes[scheme];
 			case 12:
-				return ": " + genericOnOff[botplayValue ? 0 : 1];
+				return ": " + botplayValue;
 			case 13:
 				return ": " + resTypes[lowResValue ? 0 : 1];
 			case 14:
