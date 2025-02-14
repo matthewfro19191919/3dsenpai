@@ -43,6 +43,7 @@
 	<assets path="assets/images" />
 	<assets path="assets/data" />
 	<assets path="assets/models" />
+	<assets path="assets/mobile" />
 	<!-- <assets path="assets/videos" /> -->
 	<!-- <template path='mods' /> -->
 
@@ -103,6 +104,7 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="newgrounds"/>
 	<haxelib name="faxe" if='switch'/>
+	<haxelib name="hxvlc" if="desktop || mobile" />
 	<!--haxelib name="polymod"/-->
 	<!--haxelib name="actuate" /-->
 	<!--haxelib name="extension-webm" if="desktop"/-->
@@ -127,9 +129,9 @@
 	<!--<haxedef name="FLX_NO_NATIVE_CURSOR" />-->
 
 	<!--Optimise inputs, be careful you will get null errors if you don't use conditionals in your game-->
-	<haxedef name="FLX_NO_MOUSE" if="mobile" />
-	<haxedef name="FLX_NO_KEYBOARD" if="mobile" />
-	<haxedef name="FLX_NO_TOUCH" if="desktop" />
+	<!--<haxedef name="FLX_NO_MOUSE" if="mobile" />-->
+	<!--<haxedef name="FLX_NO_KEYBOARD" if="mobile" />-->
+	<!--<haxedef name="FLX_NO_TOUCH" if="desktop" />-->
 	<!--<haxedef name="FLX_NO_GAMEPAD" />-->
 
 	<!--Disable the Flixel core sound tray-->
