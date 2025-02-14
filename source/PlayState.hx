@@ -190,7 +190,7 @@ class PlayState extends MusicBeatState
 
 	private var botPlayState:FlxText;
 
-	public var autoplay:Bool = false;
+	public static var autoplay:Bool = false;
 	public var preventScoreSaving:Bool = false;
 	
 	private var invuln:Bool = false;
