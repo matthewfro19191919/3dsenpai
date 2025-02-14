@@ -104,7 +104,6 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="newgrounds"/>
 	<haxelib name="faxe" if='switch'/>
-	<haxelib name="hxvlc" if="desktop || mobile" />
 	<!--haxelib name="polymod"/-->
 	<!--haxelib name="actuate" /-->
 	<!--haxelib name="extension-webm" if="desktop"/-->
