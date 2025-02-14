@@ -1,6 +1,5 @@
 package;
 
-import extensions.openfl.display.FPSExt;
 import modding.PolymodHandler;
 import flixel.system.scaleModes.RatioScaleMode;
 import extensions.flixel.FlxUIStateExt;
@@ -17,10 +16,12 @@ import mobile.MobileUtil;
 class Main extends Sprite
 {
 
-	public static var fpsDisplay:FPSExt;
+	public static var fpsDisplay:FPS_Mem;
 
 	public static var novid:Bool = false;
 	public static var flippymode:Bool = false;
+
+	public static var goodThing:Bool = false;
 
 	public function new()
 	{
