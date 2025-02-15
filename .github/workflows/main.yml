@@ -18,12 +18,6 @@ jobs:
             buildArgs: windows
             artifactName: windowsBuild
             artifactPath: export\release\windows\bin\*
-          - name: Linux
-            os: ubuntu-22.04
-            buildArgs: linux
-            artifactName: linuxBuild
-            artifactPath: export/release/linux/bin/*
-    uses: ./.github/workflows/build.yml
     with:
         name: ${{ matrix.name }}
         os: ${{ matrix.os }}
