@@ -45,47 +45,55 @@
 
 	<assets path="assets/images" />
 	<assets path="assets/data" />
-	<assets path="assets/videos" />
-	<assets path="assets/mobile" />
+	<assets path="assets/models" />
+	<!-- <assets path="assets/videos" /> -->
 	<!-- <template path='mods' /> -->
 
+	<!-- <assets path="plugins/" rename='' if="windows"/>
+	<assets path="dlls/" rename='' if="windows"/> -->
+	
 	<!-- <library name="noPreload" preload='false'/> -->
 	<!-- <library name="noPreload"/> -->
-	<assets path="assets/music" include="*.ogg" />
-	<assets path="assets/sounds" include="*.ogg" />
-	<assets path="assets/songs" />
+	<assets path="assets/music" include="*.ogg"/>
+	<assets path="assets/music" include="*.opus"/>
+	<assets path="assets/sounds" include="*.ogg"/>
 
-	<assets path="mods" />
+	<!-- comment out the override define to disable overrides>
+	<define name="override" if="desktop"/>
+	<assets path="override/" if="override"/-->
 
 	<!--assets path="CHANGELOG.md"/-->
 	<!-- <define name="PRELOAD_ALL" /> -->
-
+	
 	<define name="PRELOAD_ALL" unless="web" />
-	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL" />
-
+	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL"/>
+	
 	<section if="PRELOAD_ALL">
-		<library name="data" preload="true" />
-		<library name="sounds" preload="true" />
-		<library name="music" preload="true" />
-		<library name="images" preload="true" />
-		<library name="videos" preload="true" />
+		<library name="data"    preload="true" />
+		<library name="sounds"  preload="true" />
+		<library name="music" 	preload="true" />
+		<library name="images"  preload="true" />
+		<library name="videos"  preload="true" />
 	</section>
-
+	
 	<section if="NO_PRELOAD_ALL">
-		<library name="data" preload="false" />
-		<library name="sounds" preload="false" />
-		<library name="music" preload="false" />
-		<library name="images" preload="false" />
-		<library name="videos" preload="false" />
+		<library name="data"    preload="false" />
+		<library name="sounds"  preload="false" />
+		<library name="music" 	preload="false" />
+		<library name="images"  preload="false" />
+		<library name="videos"  preload="false" />
 	</section>
+	
+	<assets path="assets/agal" embed='true' unless="debug"/>
+	<assets path="assets/agal" if="debug"/>
 
 	<!-- NOTE FOR FUTURE SELF SINCE FONTS ARE ALWAYS FUCKY 
 		TO FIX ONE OF THEM, I CONVERTED IT TO OTF. DUNNO IF YOU NEED TO
 		THEN UHHH I USED THE NAME OF THE FONT WITH SETFORMAT() ON THE TEXT!!!
 		NOT USING A DIRECT THING TO THE ASSET!!!
 	-->
-	<assets path="assets/fonts" embed='true' />
-	
+	<assets path="assets/fonts" embed='true'/>
+
 	<!-- alsoft.ini is OpenAL settings to make the game sound higher quality and more like how the actual audio assets were intended to sound. -->
 	<section if="desktop">
 		<assets path="alsoft.txt" rename="plugins/alsoft.ini" type="text" if="windows"/>
