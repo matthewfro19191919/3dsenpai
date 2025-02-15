@@ -28,16 +28,6 @@ jobs:
             buildArgs: mac
             artifactName: macOSBuild-arm64
             artifactPath: export/release/macos/bin/*
-          - name: Android
-            os: macos-15
-            buildArgs: "android -ONLY_ARMV7"
-            artifactName: androidBuild
-            artifactPath: "export/release/android/bin/app/build/outputs/apk/release/*.apk"
-          - name: iOS
-            os: macos-15
-            buildArgs: "ios -nosign"
-            artifactName: iOSBuild
-            artifactPath: "export/release/ios/build/Release-iphoneos/*.ipa"
     uses: ./.github/workflows/build.yml
     with:
         name: ${{ matrix.name }}
