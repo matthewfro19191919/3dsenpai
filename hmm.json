@@ -1,6 +1,11 @@
 {
   "dependencies": [
     {
+      "name": "compiletime",
+      "type": "haxelib",
+      "version": null
+    },
+    {
       "name": "flixel",
       "type": "haxelib",
       "version": "5.9.0"
@@ -49,11 +54,9 @@
       "url": "https://github.com/FunkinCrew/hscript"
     },
     {
-      "name": "hxCodec",
-      "type": "git",
-      "dir": null,
-      "ref": "61b98a7a353b7f529a8fec84ed9afc919a2dffdd",
-      "url": "https://github.com/FunkinCrew/hxCodec"
+      "name": "hxvlc",
+      "type": "haxelib",
+      "version": null
     },
     {
       "name": "hxcpp",
@@ -84,7 +87,7 @@
       "type": "git",
       "dir": null,
       "ref": "main",
-      "url": "https://github.com/mcagabe19-stuff/lime"
+      "url": "https://github.com/mcagabe19-stuff/lime.git"
     },
     {
       "name": "openfl",
@@ -113,6 +116,13 @@
       "url": "https://github.com/fponticelli/thx.semver"
     },
     {
+      "name": "extension-androidtools",
+      "type": "git",
+      "dir": null,
+      "ref": "main",
+      "url": "https://github.com/MAJigsaw77/extension-androidtools/"
+    },
+    {
       "name": "newgrounds",
       "type": "haxelib",
       "version": null
@@ -121,6 +131,18 @@
       "name": "away3d",
       "type": "haxelib",
       "version": null
+    },
+    {
+      "name": "linc_luajit",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/nebulazorua/linc_luajit"
+    },
+    {
+      "name": "hxCodec",
+      "type": "haxelib",
+      "version": "2.5.1"
     },
     {
       "name": "hscript",
@@ -138,6 +160,30 @@
       "dir": null,
       "ref": "master",
       "url": "https://github.com/Aidan63/linc_discord-rpc"
+    },
+    {
+      "name": "hscript-ex",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/ianharrigan/hscript-ex"
+    },
+    {
+      "name": "linc_luajit",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/nebulazorua/linc_luajit"
+    },
+    {
+      "name": "newgrounds",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "away3d",
+      "type": "haxelib",
+      "version": null
     }
   ]
 }
