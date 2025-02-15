@@ -55,13 +55,17 @@
     },
     {
       "name": "hxvlc",
-      "type": "haxelib",
-      "version": null
+      "type": "git",
+      "dir": null,
+      "ref": "main",
+      "url": "https://github.com/MobilePorting/hxvlc.git"
     },
     {
       "name": "hxcpp",
-      "type": "haxelib",
-      "version": null
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/mcagabe19-stuff/hxcpp.git"
     },
     {
       "name": "hxp",
@@ -91,8 +95,10 @@
     },
     {
       "name": "openfl",
-      "type": "haxelib",
-      "version": null
+      "type": "git",
+      "dir": null,
+      "ref": "9.4.1",
+      "url": "https://github.com/mcagabe19-stuff/openfl.git"
     },
     {
       "name": "polymod",
@@ -121,64 +127,6 @@
       "dir": null,
       "ref": "main",
       "url": "https://github.com/MAJigsaw77/extension-androidtools/"
-    },
-    {
-      "name": "newgrounds",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "away3d",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "linc_luajit",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/nebulazorua/linc_luajit"
-    },
-    {
-      "name": "hxCodec",
-      "type": "haxelib",
-      "version": "2.5.1"
-    },
-    {
-      "name": "hscript",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "hxcpp-debug-server",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "discord_rpc",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/Aidan63/linc_discord-rpc"
-    },
-    {
-      "name": "hscript-ex",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/ianharrigan/hscript-ex"
-    },
-    {
-      "name": "linc_luajit",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/nebulazorua/linc_luajit"
-    },
-    {
-      "name": "newgrounds",
-      "type": "haxelib",
-      "version": null
     },
     {
       "name": "away3d",
