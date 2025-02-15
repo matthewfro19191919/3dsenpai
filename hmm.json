@@ -1,11 +1,6 @@
 {
   "dependencies": [
     {
-      "name": "compiletime",
-      "type": "haxelib",
-      "version": null
-    },
-    {
       "name": "flixel",
       "type": "haxelib",
       "version": "5.9.0"
