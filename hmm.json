@@ -83,8 +83,8 @@
       "name": "lime",
       "type": "git",
       "dir": null,
-      "ref": "836ac815d1cf13e34626d77b359818af794f3c90",
-      "url": "https://github.com/lavycat/lime.git"
+      "ref": "main",
+      "url": "https://github.com/mcagabe19-stuff/lime"
     },
     {
       "name": "openfl",
